@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BurgerApp.DataAccess\BurgerApp.DataAccess.csproj" />
+    <ProjectReference Include="..\BurgerApp.Domain\BurgerApp.Domain.csproj" />
+    <ProjectReference Include="..\BurgerApp.Mappers\BurgerApp.Mappers.csproj" />
+    <ProjectReference Include="..\BurgerApp.ViewModels\BurgerApp.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

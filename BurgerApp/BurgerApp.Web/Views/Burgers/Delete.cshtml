@@ -1,0 +1,16 @@
+﻿@model BurgerViewModel
+@{
+    ViewData["Title"] = "Delete Burger";
+}
+
+<form asp-action="ConfirmDelete" method="post">
+    <input type="hidden" asp-for="@Model.Id" />
+    <div class="card w-75">
+        <div class="card-body">
+            <h5 class="card-title text-danger">Delete Burger</h5>
+            <p class="card-text">Are you sure you want to delete @Model.Name from the menu?</p>
+            <button class="btn btn-outline-danger" type="submit">Delete</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+    </div>
+</form>

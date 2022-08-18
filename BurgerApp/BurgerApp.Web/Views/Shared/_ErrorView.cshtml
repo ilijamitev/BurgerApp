@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="card w-75">
+    <div class="card-body">
+        <h5 class="card-title text-danger">@ViewBag.ErrorTitle</h5>
+        <p class="card-text">@ViewBag.ErrorMessage</p>
+        <a asp-action="@ViewBag.ReturnView" class="btn btn-danger">Return</a>
+    </div>
+</div>

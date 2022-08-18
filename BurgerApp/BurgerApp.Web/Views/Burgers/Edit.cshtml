@@ -1,0 +1,40 @@
+﻿@model BurgerViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2 class="text-warning">Edit Burger</h2>
+<br />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit" asp-controller="Burgers" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                @Html.LabelFor(x=>x.Name)
+                <input asp-for="Name" class="form-control" />
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div><br />
+
+            <div class="form-group">
+                @Html.LabelFor(x=>x.Price)
+                <input asp-for="Price" class="form-control" />
+                <span class="text-danger" asp-validation-for="Price"></span>
+            </div><br />
+
+            <div class="form-group">
+                <label class="form-label" asp-for="Description"></label>
+                <input asp-for="Description" class="form-control" />
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div><br />
+
+            <div class="form-group">
+                @Html.LabelFor(x=>x.ImageUrl)
+                <input asp-for="ImageUrl" class="form-control" />
+                <span class="text-danger" asp-validation-for="ImageUrl"></span>
+            </div><br />
+
+            <button class="btn btn-warning" type="submit">Edit Burger</button>
+        </form>
+    </div>
+</div>
