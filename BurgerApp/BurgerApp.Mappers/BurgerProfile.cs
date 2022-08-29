@@ -8,7 +8,6 @@ namespace BurgerApp.Mappers
     {
         public BurgerProfile()
         {
-            CreateMap<Burger, BurgerViewModel>();
             CreateMap<Burger, BurgerViewModel>().ReverseMap();
             CreateMap<CreateBurgerViewModel, Burger>();
         }

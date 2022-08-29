@@ -4,7 +4,7 @@ namespace BurgerApp.Services.Interfaces
 {
     public interface IBurgerService
     {
-        List<BurgerViewModel> GetAllBurgers();
+        IEnumerable<BurgerViewModel> GetAllBurgers();
         BurgerViewModel GetBurgerById(int id);
         void AddNewBurger(CreateBurgerViewModel model);
         void DeleteBurger(int id);

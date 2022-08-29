@@ -15,7 +15,7 @@ namespace BurgerApp.Services
             _burgerRepository = burgerRepository;
             _mapper = mapper;
         }
-        public List<BurgerViewModel> GetAllBurgers()
+        public IEnumerable<BurgerViewModel> GetAllBurgers()
         {
             var burgersFromDb = _burgerRepository.GetAll();
             var mappedBurgers = burgersFromDb.Select(_mapper.Map<Burger, BurgerViewModel>).ToList();

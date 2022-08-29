@@ -8,8 +8,6 @@ namespace BurgerApp.ViewModels.OrderViewModels
         public int OrderId { get; set; }
         [Display(Name = "Full Name")]
         public string UserFullName { get; set; }
-        [Display(Name = "Order Location")]
-        public string Location { get; set; }
         [Display(Name = "Delivered")]
         public bool IsDelivered { get; set; }
         [Display(Name = "Total Price")]

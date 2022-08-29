@@ -37,7 +37,6 @@ namespace BurgerApp.DataAccess.Repositories
         public void Delete(int id)
         {
             Burger burger = _context.Burgers.SingleOrDefault(x => x.Id == id)!;
-            //ArgumentNullException.ThrowIfNull(burger); // MNOGU KORISNO
             _context.Burgers.Remove(burger);
             _context.SaveChanges();
         }

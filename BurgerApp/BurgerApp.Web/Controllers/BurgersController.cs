@@ -1,5 +1,6 @@
 ﻿using BurgerApp.Services.Interfaces;
 using BurgerApp.ViewModels.BurgerViewModels;
+using BurgerApp.ViewModels.ErrorViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BurgerApp.Web.Controllers
@@ -16,7 +17,7 @@ namespace BurgerApp.Web.Controllers
         [HttpGet("all")]
         public IActionResult Index()
         {
-            List<BurgerViewModel> burgersFromDb = _bugerService.GetAllBurgers();
+            var burgersFromDb = _bugerService.GetAllBurgers();
             return View(burgersFromDb);
         }
 
@@ -46,10 +47,14 @@ namespace BurgerApp.Web.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.ReturnView = "Create";
-                ViewBag.ErrorTitle = "Failed creating new burger!";
-                ViewBag.ErrorMessage = $"{ex.Message}";
-                return View("_ErrorView");
+                var errorModel = new ErrorViewModel
+                {
+                    ActionName = "Create",
+                    ControllerName = "Burgers",
+                    ErrorMessage = ex.Message,
+                    ErrorTitle = "Failed creating new burger!"
+                };
+                return View("_ErrorView", errorModel);
             }
         }
 
@@ -78,10 +83,14 @@ namespace BurgerApp.Web.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.ReturnView = "Index";
-                ViewBag.ErrorTitle = "Failed editing burger!";
-                ViewBag.ErrorMessage = $"{ex.Message}";
-                return View("_ErrorView");
+                var errorModel = new ErrorViewModel
+                {
+                    ActionName = "Index",
+                    ControllerName = "Burgers",
+                    ErrorMessage = ex.Message,
+                    ErrorTitle = "Failed editing burger!"
+                };
+                return View("_ErrorView", errorModel);
             }
         }
 

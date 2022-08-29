@@ -1,11 +1,12 @@
-﻿@{
+﻿@model ErrorViewModel
+@{
     ViewData["Title"] = "Error";
 }
 
 <div class="card w-75">
     <div class="card-body">
-        <h5 class="card-title text-danger">@ViewBag.ErrorTitle</h5>
-        <p class="card-text">@ViewBag.ErrorMessage</p>
-        <a asp-action="@ViewBag.ReturnView" class="btn btn-danger">Return</a>
+        <h5 class="card-title text-danger">@Model.ErrorTitle</h5>
+        <p class="card-text">@Model.ErrorMessage</p>
+        <a asp-controller="@Model.ControllerName" asp-action="@Model.ActionName" class="btn btn-danger">Go Back</a>
     </div>
 </div>

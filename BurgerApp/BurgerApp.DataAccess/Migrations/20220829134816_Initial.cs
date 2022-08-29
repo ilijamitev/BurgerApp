@@ -118,12 +118,12 @@ namespace BurgerApp.DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "IsDelivered", "Location", "PaymentMethod", "TimeOrdered", "UserId" },
-                values: new object[] { 1, false, "Skopje North", 1, new DateTime(2022, 8, 16, 22, 30, 36, 955, DateTimeKind.Local).AddTicks(1429), 1 });
+                values: new object[] { 1, false, "Skopje North", 1, new DateTime(2022, 8, 29, 15, 48, 16, 614, DateTimeKind.Local).AddTicks(3428), 1 });
 
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "IsDelivered", "Location", "PaymentMethod", "TimeOrdered", "UserId" },
-                values: new object[] { 2, true, "Skopje South", 2, new DateTime(2022, 8, 15, 22, 30, 36, 955, DateTimeKind.Local).AddTicks(1470), 3 });
+                values: new object[] { 2, true, "Skopje South", 2, new DateTime(2022, 8, 28, 15, 48, 16, 614, DateTimeKind.Local).AddTicks(3461), 3 });
 
             migrationBuilder.InsertData(
                 table: "BurgerOrder",
