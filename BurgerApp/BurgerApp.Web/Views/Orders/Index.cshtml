@@ -26,9 +26,9 @@
                 <td>@order.UserFullName</td>
                 <td>@order.TotalPrice</td>
                 <td>
-                    <a class="btn btn-warning" asp-controller="Order" asp-action="Details" asp-route-id="@order.OrderId">Details</a>
-                    <a class="btn btn-warning" asp-controller="Order" asp-action="Edit" asp-route-id="@order.OrderId">Edit</a>
-                    <a class="btn btn-danger" asp-controller="Order" asp-action="Delete" asp-route-id="@order.OrderId">Delete</a>
+                    <a class="btn btn-warning" asp-controller="Orders" asp-action="Details" asp-route-id="@order.OrderId">Details</a>
+                    <a class="btn btn-warning" asp-controller="Orders" asp-action="Edit" asp-route-id="@order.OrderId">Edit</a>
+                    <a class="btn btn-danger" asp-controller="Orders" asp-action="Delete" asp-route-id="@order.OrderId">Delete</a>
                 </td>
             </tr>
         }
@@ -37,8 +37,7 @@
 <br />
 
 
-<a class="btn btn-warning" asp-controller="Order" asp-action="Create">
+<a class="btn btn-warning" asp-controller="Orders" asp-action="Create">
     Create New Order
 </a>
 
-<a class="btn btn-outline-warning" asp-action="Index">Back</a>

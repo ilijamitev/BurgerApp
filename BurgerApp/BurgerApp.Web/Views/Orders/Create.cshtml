@@ -1,0 +1,40 @@
+﻿@model CreateOrderViewModel
+@{
+    ViewData["Title"] = "Create Order";
+}
+
+<h2 class="text-center text-warning">Create new Order</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            <input type="hidden" asp-for="@Model.Id" />
+            <div class="mb-3">
+                @Html.LabelFor(x=>x.UserId)
+                <select class="form-control" asp-for="@Model.UserId">
+                    @foreach (UserViewModel user in ViewBag.Users)
+                    {
+                        <option value="@user.Id">@user.FullName</option>
+                    }
+                </select>
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(x=>x.PaymentMethod)
+                <select asp-for="@Model.PaymentMethod" asp-items="@Html.GetEnumSelectList<BurgerApp.Domain.Enums.PaymentMethod>()"></select>
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(x=>x.BurgersId)
+                <select multiple="multiple" class="form-control" asp-for="@Model.BurgersId">
+                    @foreach (BurgerViewModel burger in ViewBag.Burgers)
+                    {
+                        <option value="@burger.Id">@burger.Name $@burger.Price</option>
+                    }
+                </select>
+            </div>
+            <button class="btn btn-outline-warning" type="submit">Create Order</button>
+        </form>
+    </div>
+</div>
+<br />
+
+<a class="btn btn-outline-secondary" asp-controller="Orders" asp-action="Index">Back</a>

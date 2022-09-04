@@ -44,8 +44,6 @@ namespace BurgerApp.Services
         }
         public void DeleteBurger(int id)
         {
-            Burger burger = _burgerRepository.GetById(id);
-            ArgumentNullException.ThrowIfNull(burger);
             _burgerRepository.Delete(id);
         }
 

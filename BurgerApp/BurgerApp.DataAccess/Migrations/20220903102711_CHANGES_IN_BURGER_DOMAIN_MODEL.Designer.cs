@@ -4,6 +4,7 @@ using BurgerApp.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BurgerApp.DataAccess.Migrations
 {
     [DbContext(typeof(BurgerAppDbContext))]
-    partial class BurgerAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220903102711_CHANGES_IN_BURGER_DOMAIN_MODEL")]
+    partial class CHANGES_IN_BURGER_DOMAIN_MODEL
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -164,7 +166,7 @@ namespace BurgerApp.DataAccess.Migrations
                             IsDelivered = false,
                             Location = "Skopje North",
                             PaymentMethod = 1,
-                            TimeOrdered = new DateTime(2022, 9, 4, 18, 34, 32, 122, DateTimeKind.Local).AddTicks(5212),
+                            TimeOrdered = new DateTime(2022, 9, 3, 12, 27, 10, 849, DateTimeKind.Local).AddTicks(5005),
                             UserId = 1
                         },
                         new
@@ -173,7 +175,7 @@ namespace BurgerApp.DataAccess.Migrations
                             IsDelivered = true,
                             Location = "Skopje South",
                             PaymentMethod = 2,
-                            TimeOrdered = new DateTime(2022, 9, 3, 18, 34, 32, 122, DateTimeKind.Local).AddTicks(5246),
+                            TimeOrdered = new DateTime(2022, 9, 2, 12, 27, 10, 849, DateTimeKind.Local).AddTicks(5045),
                             UserId = 3
                         });
                 });

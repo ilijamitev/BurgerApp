@@ -2,6 +2,7 @@
 using BurgerApp.ViewModels.BurgerViewModels;
 using BurgerApp.ViewModels.ErrorViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace BurgerApp.Web.Controllers
 {
@@ -42,7 +43,7 @@ namespace BurgerApp.Web.Controllers
                     _bugerService.AddNewBurger(newBurger);
                     return RedirectToAction("Index");
                 }
-
+                Log.Error("Failed creating new burger!");
                 return View();
             }
             catch (Exception ex)

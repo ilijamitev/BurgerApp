@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BurgerApp.DataAccess.Migrations
 {
     [DbContext(typeof(BurgerAppDbContext))]
-    [Migration("20220829134816_Initial")]
-    partial class Initial
+    [Migration("20220904163432_CHANGE_BURGERORDER_DOMAIN_MODEL")]
+    partial class CHANGE_BURGERORDER_DOMAIN_MODEL
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,12 +36,6 @@ namespace BurgerApp.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("HasBBQSauce")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFries")
-                        .HasColumnType("bit");
-
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -62,8 +56,6 @@ namespace BurgerApp.DataAccess.Migrations
                         {
                             Id = 1,
                             Description = "Beef Patty, Onions, Tomatoes, Pickles, Lettuce, Ketchup, Mayo, Mustard",
-                            HasBBQSauce = false,
-                            HasFries = false,
                             ImageUrl = "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=%5B1000%2C700%5D&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2022%2F03%2F11%2F49404-Juiciest-Hamburgers-Ever-mfs-052.jpg",
                             Name = "Hamburger",
                             Price = 180.0
@@ -72,8 +64,6 @@ namespace BurgerApp.DataAccess.Migrations
                         {
                             Id = 2,
                             Description = "Beef Patty, Cheddar Cheese, Grilled Onions & Tomatoes, Pickles, Lettuce, Ketchup, Mayo, Mustard",
-                            HasBBQSauce = false,
-                            HasFries = false,
                             ImageUrl = "https://dam.kraftheinzcompany.com/adaptivemedia/rendition/195370-3000x2000.jpg?id=093000b4880e99e6cd87fa511235a789145c5a0a&ht=2000&wd=3000&version=1&clid=pim",
                             Name = "Cheeseburger",
                             Price = 200.0
@@ -82,8 +72,6 @@ namespace BurgerApp.DataAccess.Migrations
                         {
                             Id = 3,
                             Description = "Beef Patty, Cheddar Cheese, Beef Bacon, Grilled Onions & Tomatoes, Pickles, Lettuce, Ketchup, Mayo, Mustard",
-                            HasBBQSauce = false,
-                            HasFries = false,
                             ImageUrl = "https://media.istockphoto.com/photos/bacon-burger-picture-id520215281?k=20&m=520215281&s=170667a&w=0&h=KcEFpxMByOgezAt21h9-mEQ-4bSD7aLWb8n1FSwBAxk=",
                             Name = "Baconburger",
                             Price = 230.0
@@ -92,8 +80,6 @@ namespace BurgerApp.DataAccess.Migrations
                         {
                             Id = 4,
                             Description = "Double Beef Patty, Double Cheddar Cheese, Beef Bacon, Grilled Onions & Tomatoes, Pickles, Lettuce, Mayo, BBQ Sauce",
-                            HasBBQSauce = false,
-                            HasFries = false,
                             ImageUrl = "https://www.kitchensanctuary.com/wp-content/uploads/2021/05/Double-Cheeseburger-square-FS-42.jpg",
                             Name = "MegaBurger",
                             Price = 260.0
@@ -180,7 +166,7 @@ namespace BurgerApp.DataAccess.Migrations
                             IsDelivered = false,
                             Location = "Skopje North",
                             PaymentMethod = 1,
-                            TimeOrdered = new DateTime(2022, 8, 29, 15, 48, 16, 614, DateTimeKind.Local).AddTicks(3428),
+                            TimeOrdered = new DateTime(2022, 9, 4, 18, 34, 32, 122, DateTimeKind.Local).AddTicks(5212),
                             UserId = 1
                         },
                         new
@@ -189,7 +175,7 @@ namespace BurgerApp.DataAccess.Migrations
                             IsDelivered = true,
                             Location = "Skopje South",
                             PaymentMethod = 2,
-                            TimeOrdered = new DateTime(2022, 8, 28, 15, 48, 16, 614, DateTimeKind.Local).AddTicks(3461),
+                            TimeOrdered = new DateTime(2022, 9, 3, 18, 34, 32, 122, DateTimeKind.Local).AddTicks(5246),
                             UserId = 3
                         });
                 });
