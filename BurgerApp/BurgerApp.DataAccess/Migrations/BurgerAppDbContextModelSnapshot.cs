@@ -164,7 +164,7 @@ namespace BurgerApp.DataAccess.Migrations
                             IsDelivered = false,
                             Location = "Skopje North",
                             PaymentMethod = 1,
-                            TimeOrdered = new DateTime(2022, 9, 4, 18, 34, 32, 122, DateTimeKind.Local).AddTicks(5212),
+                            TimeOrdered = new DateTime(2022, 9, 5, 16, 42, 31, 688, DateTimeKind.Local).AddTicks(7336),
                             UserId = 1
                         },
                         new
@@ -173,7 +173,7 @@ namespace BurgerApp.DataAccess.Migrations
                             IsDelivered = true,
                             Location = "Skopje South",
                             PaymentMethod = 2,
-                            TimeOrdered = new DateTime(2022, 9, 3, 18, 34, 32, 122, DateTimeKind.Local).AddTicks(5246),
+                            TimeOrdered = new DateTime(2022, 9, 4, 16, 42, 31, 688, DateTimeKind.Local).AddTicks(7372),
                             UserId = 3
                         });
                 });

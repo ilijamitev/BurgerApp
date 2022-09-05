@@ -4,22 +4,19 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Configurating Serilog
+#region Configurating Serilog
 var loggerConfiq = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-
 builder.Host.UseSerilog((context, confiq) =>
 {
     confiq.ReadFrom.Configuration(loggerConfiq);
 });
-
 //builder.Logging.AddSerilog();
-
 //Log.Logger = new LoggerConfiguration()
 //    .ReadFrom.Configuration(configuration)
 //    .CreateLogger();
+#endregion
 
 
 // Dependency Injection
@@ -36,7 +33,6 @@ Log.Information("Application Starting Up");
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

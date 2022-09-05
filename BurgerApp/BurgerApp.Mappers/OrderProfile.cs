@@ -25,6 +25,10 @@ namespace BurgerApp.Mappers
 
             CreateMap<CreateOrderViewModel, Order>().ReverseMap();
 
+            CreateMap<Order, EditOrderViewModel>().ReverseMap();
+
+            CreateMap<OrderViewModel, EditOrderViewModel>().ReverseMap();
+
         }
     }
 }

@@ -17,8 +17,6 @@ namespace BurgerApp.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    HasFries = table.Column<bool>(type: "bit", nullable: false),
-                    HasBBQSauce = table.Column<bool>(type: "bit", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -96,13 +94,13 @@ namespace BurgerApp.DataAccess.Migrations
 
             migrationBuilder.InsertData(
                 table: "Burgers",
-                columns: new[] { "Id", "Description", "HasBBQSauce", "HasFries", "ImageUrl", "Name", "Price" },
+                columns: new[] { "Id", "Description", "ImageUrl", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, "Beef Patty, Onions, Tomatoes, Pickles, Lettuce, Ketchup, Mayo, Mustard", false, false, "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=%5B1000%2C700%5D&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2022%2F03%2F11%2F49404-Juiciest-Hamburgers-Ever-mfs-052.jpg", "Hamburger", 180.0 },
-                    { 2, "Beef Patty, Cheddar Cheese, Grilled Onions & Tomatoes, Pickles, Lettuce, Ketchup, Mayo, Mustard", false, false, "https://dam.kraftheinzcompany.com/adaptivemedia/rendition/195370-3000x2000.jpg?id=093000b4880e99e6cd87fa511235a789145c5a0a&ht=2000&wd=3000&version=1&clid=pim", "Cheeseburger", 200.0 },
-                    { 3, "Beef Patty, Cheddar Cheese, Beef Bacon, Grilled Onions & Tomatoes, Pickles, Lettuce, Ketchup, Mayo, Mustard", false, false, "https://media.istockphoto.com/photos/bacon-burger-picture-id520215281?k=20&m=520215281&s=170667a&w=0&h=KcEFpxMByOgezAt21h9-mEQ-4bSD7aLWb8n1FSwBAxk=", "Baconburger", 230.0 },
-                    { 4, "Double Beef Patty, Double Cheddar Cheese, Beef Bacon, Grilled Onions & Tomatoes, Pickles, Lettuce, Mayo, BBQ Sauce", false, false, "https://www.kitchensanctuary.com/wp-content/uploads/2021/05/Double-Cheeseburger-square-FS-42.jpg", "MegaBurger", 260.0 }
+                    { 1, "Beef Patty, Onions, Tomatoes, Pickles, Lettuce, Ketchup, Mayo, Mustard", "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=%5B1000%2C700%5D&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2022%2F03%2F11%2F49404-Juiciest-Hamburgers-Ever-mfs-052.jpg", "Hamburger", 180.0 },
+                    { 2, "Beef Patty, Cheddar Cheese, Grilled Onions & Tomatoes, Pickles, Lettuce, Ketchup, Mayo, Mustard", "https://dam.kraftheinzcompany.com/adaptivemedia/rendition/195370-3000x2000.jpg?id=093000b4880e99e6cd87fa511235a789145c5a0a&ht=2000&wd=3000&version=1&clid=pim", "Cheeseburger", 200.0 },
+                    { 3, "Beef Patty, Cheddar Cheese, Beef Bacon, Grilled Onions & Tomatoes, Pickles, Lettuce, Ketchup, Mayo, Mustard", "https://media.istockphoto.com/photos/bacon-burger-picture-id520215281?k=20&m=520215281&s=170667a&w=0&h=KcEFpxMByOgezAt21h9-mEQ-4bSD7aLWb8n1FSwBAxk=", "Baconburger", 230.0 },
+                    { 4, "Double Beef Patty, Double Cheddar Cheese, Beef Bacon, Grilled Onions & Tomatoes, Pickles, Lettuce, Mayo, BBQ Sauce", "https://www.kitchensanctuary.com/wp-content/uploads/2021/05/Double-Cheeseburger-square-FS-42.jpg", "MegaBurger", 260.0 }
                 });
 
             migrationBuilder.InsertData(
@@ -118,12 +116,12 @@ namespace BurgerApp.DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "IsDelivered", "Location", "PaymentMethod", "TimeOrdered", "UserId" },
-                values: new object[] { 1, false, "Skopje North", 1, new DateTime(2022, 9, 3, 12, 10, 17, 445, DateTimeKind.Local).AddTicks(4769), 1 });
+                values: new object[] { 1, false, "Skopje North", 1, new DateTime(2022, 9, 5, 16, 42, 31, 688, DateTimeKind.Local).AddTicks(7336), 1 });
 
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "IsDelivered", "Location", "PaymentMethod", "TimeOrdered", "UserId" },
-                values: new object[] { 2, true, "Skopje South", 2, new DateTime(2022, 9, 2, 12, 10, 17, 445, DateTimeKind.Local).AddTicks(4806), 3 });
+                values: new object[] { 2, true, "Skopje South", 2, new DateTime(2022, 9, 4, 16, 42, 31, 688, DateTimeKind.Local).AddTicks(7372), 3 });
 
             migrationBuilder.InsertData(
                 table: "BurgerOrder",

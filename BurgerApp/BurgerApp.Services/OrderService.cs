@@ -28,7 +28,15 @@ namespace BurgerApp.Services
             return orders;
         }
 
-        public EditOrderViewModel GetOrder(int id)
+        public OrderViewModel GetOrder(int id)
+        {
+            var order = _orderRepository.GetById(id);
+            ArgumentNullException.ThrowIfNull(order);
+            var mappedOrder = _mapper.Map<OrderViewModel>(order);
+            return mappedOrder;
+        }
+
+        public EditOrderViewModel GetOrderToEdit(int id)
         {
             var orderFromDb = _orderRepository.GetById(id);
             var mappedOrder = _mapper.Map<EditOrderViewModel>(orderFromDb);
@@ -56,13 +64,13 @@ namespace BurgerApp.Services
 
         public void DeleteOrder(int id)
         {
-            throw new NotImplementedException();
+            _orderRepository.Delete(id);
         }
 
         public void EditOrder(EditOrderViewModel model)
         {
-            var order = GetOrder(model.Id);
-            var mappedOrder = _mapper.Map<Order>(order);
+            var order = _orderRepository.GetById(model.Id);
+            Order mappedOrder = _mapper.Map(model, order);
             _orderRepository.Update(mappedOrder);
         }
 

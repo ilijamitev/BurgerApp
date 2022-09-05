@@ -3,6 +3,7 @@ using BurgerApp.ViewModels.ErrorViewModels;
 using BurgerApp.ViewModels.OrderViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Serilog;
 
 namespace BurgerApp.Web.Controllers
 {
@@ -39,6 +40,7 @@ namespace BurgerApp.Web.Controllers
             return View("_ErrorView", errorModel);
         }
 
+        [HttpGet("details")]
         public IActionResult Details(int id)
         {
             var order = _orderService.GetOrderDetails(id);
@@ -69,44 +71,58 @@ namespace BurgerApp.Web.Controllers
         [HttpGet("edit")]
         public IActionResult Edit(int id)
         {
-            ViewBag.Burgers = _burgerService.GetAllBurgers();
-            var model = _orderService.GetOrder(id);
+            var model = _orderService.GetOrderToEdit(id);
             return View(model);
         }
 
         [HttpPost("edit")]
         public IActionResult Edit(EditOrderViewModel order)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _orderService.EditOrder(order);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    _orderService.EditOrder(order);
+                    return RedirectToAction("Index");
+                }
+                return View(order);
             }
-            return View(order);
+            catch (Exception ex)
+            {
+                Log.Error(ex.Message);
+                throw;
+            }
+
         }
 
-        //[HttpGet("delete")]
-        //public IActionResult Delete(int id)
-        //{
-        //    ViewBag.Burgers = _burgerService.GetAllBurgers();
-        //    var model = _orderService.GetOrder(id);
-        //    return View(model);
-        //}
+        [HttpGet("delete")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                var model = _orderService.GetOrder(id);
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex.Message);
+                throw;
+            }
+        }
 
-        //[HttpPost("delete")]
-        //public IActionResult Delete()
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _orderService.EditOrder(order);
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(order);
-        //}
-
-
-
-
+        public IActionResult ConfirmDelete(int id)
+        {
+            try
+            {
+                _orderService.DeleteOrder(id);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex.Message);
+                throw;
+            }
+        }
 
     }
 }

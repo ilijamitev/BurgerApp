@@ -6,7 +6,7 @@
 
 <h2 class="text-center text-warning">Edit Order</h2>
 
-@*
+
 <div class="row">
     <div class="col-md-6">
         <form asp-action="Edit" method="post">
@@ -16,19 +16,17 @@
                 <select asp-for="@Model.PaymentMethod" asp-items="@Html.GetEnumSelectList<BurgerApp.Domain.Enums.PaymentMethod>()"></select>
             </div>
             <div class="mb-3">
-                @Html.LabelFor(x=>x.BurgersId)
-                <select multiple="multiple" class="form-control" asp-for="@Model.BurgersId">
-                    @foreach (BurgerViewModel burger in ViewBag.Burgers)
-                    {
-                        <option value="@burger.Id">@burger.Name $@burger.Price</option>
-                    }
+                @Html.LabelFor(x=>x.IsDelivered)
+                <select class="form-control" asp-for="@Model.IsDelivered">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
                 </select>
             </div>
             <button class="btn btn-outline-warning" type="submit">Edit Order</button>
         </form>
     </div>
 </div>
-<br />*@
+<br />
 
 
 <a class="btn btn-outline-secondary" asp-controller="Orders" asp-action="Index">Back</a>

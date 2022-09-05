@@ -1,0 +1,15 @@
+﻿@model OrderViewModel
+@{
+    ViewData["Title"] = "Delete Order";
+}
+
+
+<div class="card w-75">
+    <div class="card-body">
+        <h5 class="card-title text-danger">Delete Order &numero; @Model.OrderId</h5>
+        <p class="card-text">Customer: @Model.UserFullName</p>
+        <a asp-controller="Orders" asp-action="ConfirmDelete" asp-route-id="@Model.OrderId" class="btn btn-outline-danger">Delete Order</a>
+        <a asp-controller="Orders" asp-action="Index" class="btn btn-outline-warning">Go Back</a>
+    </div>
+</div>
+
