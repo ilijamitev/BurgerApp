@@ -4,12 +4,10 @@ using BurgerApp.Domain.Models;
 
 namespace BurgerApp.DataAccess.Repositories
 {
-    public class BurgerRepository : IRepository<Burger>
+    public class BurgerRepository : BaseRepository, IRepository<Burger>
     {
-        private readonly BurgerAppDbContext _context;
-        public BurgerRepository(BurgerAppDbContext context)
+        public BurgerRepository(BurgerAppDbContext dbContext) : base(dbContext)
         {
-            _context = context;
         }
 
         public List<Burger> GetAll()

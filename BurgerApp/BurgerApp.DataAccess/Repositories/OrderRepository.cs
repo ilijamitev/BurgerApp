@@ -5,12 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BurgerApp.DataAccess.Repositories
 {
-    public class OrderRepository : IRepository<Order>
+    public class OrderRepository : BaseRepository, IRepository<Order>
     {
-        private readonly BurgerAppDbContext _context;
-        public OrderRepository(BurgerAppDbContext context)
+        public OrderRepository(BurgerAppDbContext dbContext) : base(dbContext)
         {
-            _context = context;
         }
 
         public List<Order> GetAll()
